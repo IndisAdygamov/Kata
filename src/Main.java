@@ -84,9 +84,16 @@ public class Main {
 
     static boolean check (String checkString) throws Exception {
         String arrayLocal[] = checkString.split(" ");
+        boolean sing = false;
 
-        if(!checkString.matches("[\\+\\-\\*/]+")) {
-            throw new Exception("Выражение не содержит математических операций");
+        for(String o : arrayLocal) {
+            if(o.matches("[\\+\\-\\*/]+")) {
+                sing = true;
+            }
+        }
+        //нет знака => исключение
+        if(!sing) {
+            throw new Exception("//Не содержит математических операций");
         }
 
         if (arrayLocal.length != 3) {
